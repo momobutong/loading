@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>load</title>
+	<style type="text/css">
+		ul {
+			padding-left: 0;
+    		list-style: none;
+		}
+		li {
+			float: left;
+		}
+		.typeOne {
+			width: 300px;
+			height: 300px;
+			background-color: yellowgreen;
+		}
+		.preload {
+			position: relative;
+			width: 100px;
+			height: 100px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.outerCircle {
+			position: absolute;
+		    border: 6px solid #fff;
+		    border-top: 6px solid transparent;
+		    border-radius: 50%;
+		    width: 50px;
+		    height: 50px;
+		    top: 19px;
+		    left: 19px;
+		    animation: spin-1 2s infinite linear; 
+		}
+		.innerCircle {
+			position: absolute;
+		    width: 30px;
+		    height: 30px;
+		    border: 5px solid #fff;
+		    border-left: 5px solid transparent;
+		    border-radius: 50%;
+		    top: 30px;
+		    left: 30px;
+		    animation: spin-2 1s infinite linear; 
+		}
+
+		@keyframes spin-1 {
+			0% { transform: rotate(360deg); opacity: 1; }
+			50% { transform: rotate(180deg); opacity: .7; }
+			100% { transform: rotate(0deg); opacity: .3; }
+		}
+		@keyframes spin-2 {
+			0% { transform: rotate(0deg); opacity: .5; }
+			50% { transform: rotate(180deg); opacity: 1; }
+			100% { transform: rotate(360deg); opacity: .5; }
+		}
+
+		.typeTwo {
+			width: 300px;
+			height: 300px;
+			background-color: lightsalmon;
+		}
+		.circleLeft, .circleRight {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: #fff;
+		}
+		.circleLeft {
+			top: 40px;
+			animation: cross-1 1s infinite linear;
+		}
+		.circleRight {
+			top: 40px;
+			left: 80px;
+			animation: cross-2 1s infinite linear;
+		}
+
+		@keyframes cross-1 {
+			0% { transform: translateX(35px); opacity: 1; }
+			50% { transform: translateX(0); opacity: .5; }
+			100% { transform: translateX(35px); opacity: 1;}
+		}
+		@keyframes cross-2 {
+			0% { transform: translateX(-35px); opacity: 1; }
+			50% { transform: translateX(0); opacity: .5; }
+			100% { transform: translateX(-35px); opacity: 1;}
+		}
+
+		.typeThree {
+			background-color: lightblue;
+			width: 300px;
+			height: 300px;
+		}
+		.circle {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			top: 10px;
+			left: 10px;
+			border-radius: 50%;
+			border: 6px solid rgba(255, 255, 255, .3);
+			border-top: 6px solid #fff;
+			animation: rotate 1.5s infinite linear;
+		}
+
+		@keyframes rotate {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+
+		.typeFour {
+			width: 300px;
+			height: 300px;
+			background-color: salmon;
+		}
+		.ball1, .ball2, .ball3, .ball4, .ball5 {
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			background-color: #fff;
+			border-radius: 50%;
+			animation: bounce 1.2s infinite linear;
+		}
+		.ball2 {
+			left: 22.5px;
+			animation-delay: .3s;
+		}
+		.ball3 {
+			left: 45px;
+			animation-delay: .6s;
+		}
+		.ball4 {
+			left: 67.5px;
+			animation-delay: .9s;
+		}
+		.ball5 {
+			left: 90px;
+			animation-delay: 1.2s;
+		}
+
+		@keyframes bounce {
+			0% { transform: translateY(0); opacity: .5; }
+			50% { transform: translateY(45px); opacity: 1; }
+			100% { transform: translateY(0); opacity: .5 };
+		}
+
+		.typeFive {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+		}
+		.circle1, .circle2, .circle3 {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			border: 6px solid #fff;
+			border-radius: 50%;
+			top: 4px;
+			left: 4px;
+			animation: scale 1.8s infinite linear;
+		}
+		.circle2 {
+			animation-delay: .6s;
+		}
+		.circle3 {
+			animation-delay: 1.2s;
+		}
+		@keyframes scale {
+			0% { transform: scale(0); opacity: 0; }
+			25% { transform: scale(0); opacity: .5; }
+			50% { transform: scale(.9); opacity: 1; }
+			75% { transform: scale(1.2); opacity: .5; }
+			100% { transform: scale(1.5); opacity: 0; }
+		}
+	</style>
+</head>
+<body>
+<ul>
+	<li>
+		<div class="typeOne">
+			<div class="preload">
+				<span class="outerCircle"></span>
+				<span class="innerCircle"></span>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="typeTwo">
+			<div class="preload">
+				<span class="circleLeft"></span>
+				<span class="circleRight"></span>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="typeThree">
+			<div class="preload">
+				<span class="circle"></span>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="typeFour">
+			<div class="preload">
+				<span class="ball1"></span>
+				<span class="ball2"></span>
+				<span class="ball3"></span>
+				<span class="ball4"></span>
+				<span class="ball5"></span>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="typeFive">
+			<div class="preload">
+				<span class="circle1"></span>
+				<span class="circle2"></span>
+				<span class="circle3"></span>
+			</div>
+		</div>
+	</li>
+</ul>
+
+</body>
+</html>
